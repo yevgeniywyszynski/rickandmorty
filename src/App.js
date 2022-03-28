@@ -41,14 +41,14 @@ class App extends React.Component {
               </div>
               <div className={styles.heroDescription}>
                 <h3 className={styles.nameStl} key={hero.name}>name: <span className={styles.nameSp}>{hero.name}</span></h3>
-                <h3 className={styles.nameSt}>status: {hero.status} </h3>
-                <h3 classNmae={styles.nameSt}>episodes: {hero.episode.length} </h3>
+                <h3 className={styles.nameStl}>status: <span className={styles.nameSp}>{hero.status}</span></h3>
+                <h3 className={styles.nameStl}>episodes: <span className={styles.nameSp}>{hero.episode.length} </span></h3>
               </div>
             </div>
           ))}
         </div>
         <div className={styles.btnWrapper}>
-          <button type="button" className={styles.btn} onClick={() => this.nextHero()}>Next Hero</button>
+          <button type="button" className={styles.btn} onClick={() => this.nextHero()}><span className={styles.btnDescription}>NEXT HERO</span></button>
         </div>
       </div>
     )
