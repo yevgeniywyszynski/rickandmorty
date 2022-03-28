@@ -1,23 +1,30 @@
-import './App.css';
+import React from "react";
+import styles from "../src/App.module.scss"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    allHeros: [],
+    idToShow: []
+  }
+
+  componentDidMount() {
+    this.fetchRickyAndMorton()
+  }
+
+  fetchRickyAndMorton = async _ => {
+    const rickMorton = await fetch('https://rickandmortyapi.com/api/character');
+    const rickMortonJSON = await rickMorton.json()
+    console.log(rickMortonJSON);
+  }
+
+
+  render() {
+    return(
+      <div className="App" id="root">
+        Heloo
+      </div>
+    )
+  }
 }
 
 export default App;
