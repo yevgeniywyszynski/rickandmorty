@@ -14,14 +14,27 @@ class App extends React.Component {
   fetchRickyAndMorton = async _ => {
     const rickMorton = await fetch('https://rickandmortyapi.com/api/character');
     const rickMortonJSON = await rickMorton.json()
-    console.log(rickMortonJSON);
+    const nameId = rickMortonJSON.results
+
+    this.setState({
+      allHeros: nameId,
+      idToShow: [1]
+    })
+
   }
 
 
   render() {
     return(
       <div className="App" id="root">
-        Heloo
+        <div className={styles.herosWrapper}>
+          {this.state.allHeros.map( hero => (
+            <img alt="heros" key={hero.name} src={hero.image}></img>
+          ))}
+        </div>
+        <div className={styles.btnWrapper}>
+          <button type="button" className={styles.btn} onClick={() => this.nextHero()}>Next Hero</button>
+        </div>
       </div>
     )
   }
