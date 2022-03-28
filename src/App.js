@@ -23,13 +23,28 @@ class App extends React.Component {
 
   }
 
+  nextHero() {
+    this.setState({
+      idToShow: [...this.state.idToShow, this.state.idToShow[this.state.idToShow.length-1] + 1]
+    })
+  }
 
   render() {
+    const heroToShow = this.state.allHeros.filter(char => this.state.idToShow.includes(char.id))
     return(
       <div className="App" id="root">
         <div className={styles.herosWrapper}>
-          {this.state.allHeros.map( hero => (
-            <img alt="heros" key={hero.name} src={hero.image}></img>
+          {heroToShow.map(hero => (
+            <div className={styles.heroWrapper} key={hero.name}>
+              <div className={styles.imgWrapper}>
+                <img className={styles.img} alt={hero.name} src={hero.image} />
+              </div>
+              <div className={styles.heroDescription}>
+                <h3 className={styles.nameStl} key={hero.name}>name: <span className={styles.nameSp}>{hero.name}</span></h3>
+                <h3 className={styles.nameSt}>status: {hero.status} </h3>
+                <h3 classNmae={styles.nameSt}>episodes: {hero.episode.length} </h3>
+              </div>
+            </div>
           ))}
         </div>
         <div className={styles.btnWrapper}>
