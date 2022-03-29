@@ -1,0 +1,35 @@
+.btn {
+    border: 2px solid #fff;
+    background-color: transparent;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    position: relative;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.btn::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    transition: all 0.9s;
+    background-color: #fff;
+}
+
+.btnDescription {
+    z-index: 9999;
+    position: relative;
+    transition: all 0.9s;
+}
+
+.btn:hover::after {
+    width: 100%;
+}
+.btn:hover .btnDescription {
+    color: #000;
+}
