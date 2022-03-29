@@ -1,9 +1,14 @@
 import React from "react";
 import styles from "../src/App.module.scss"
+import ImageHero from "./ImageHero/ImageHero";
+import HeroDescription from "./HeroDescription/HeroDescription";
+import Btn from "./Btn/Btn";
+import Heroes from "./Heroes/Hereos";
 
 class App extends React.Component {
   state = {
     allHeros: [],
+    heroToShow: [],
     idToShow: []
   }
 
@@ -20,36 +25,27 @@ class App extends React.Component {
       allHeros: nameId,
       idToShow: [1]
     })
-
+    this.updateHeroesToShow()
   }
 
   nextHero() {
     this.setState({
       idToShow: [...this.state.idToShow, this.state.idToShow[this.state.idToShow.length-1] + 1]
     })
+    this.updateHeroesToShow()
+  }
+
+  updateHeroesToShow(){
+      this.setState({
+        heroToShow: this.state.allHeros.filter(hero => this.state.idToShow.includes(hero.id))
+      })
   }
 
   render() {
-    const heroToShow = this.state.allHeros.filter(char => this.state.idToShow.includes(char.id))
     return(
       <div className="App" id="root">
-        <div className={styles.herosWrapper}>
-          {heroToShow.map(hero => (
-            <div className={styles.heroWrapper} key={hero.name}>
-              <div className={styles.imgWrapper}>
-                <img className={styles.img} alt={hero.name} src={hero.image} />
-              </div>
-              <div className={styles.heroDescription}>
-                <h3 className={styles.nameStl} key={hero.name}>name: <span className={styles.nameSp}>{hero.name}</span></h3>
-                <h3 className={styles.nameStl}>status: <span className={styles.nameSp}>{hero.status}</span></h3>
-                <h3 className={styles.nameStl}>episodes: <span className={styles.nameSp}>{hero.episode.length} </span></h3>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className={styles.btnWrapper}>
-          <button type="button" className={styles.btn} onClick={() => this.nextHero()}><span className={styles.btnDescription}>NEXT HERO</span></button>
-        </div>
+        <Heroes showHero = {this.state.heroToShow} />
+        <Btn action={this.nextHero.bind(this)}/>
       </div>
     )
   }
