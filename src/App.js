@@ -4,12 +4,14 @@ import ImageHero from "./ImageHero/ImageHero";
 import HeroDescription from "./HeroDescription/HeroDescription";
 import Btn from "./Btn/Btn";
 import Heroes from "./Heroes/Hereos";
+import SerachHeroes from "./SearchHeroes/SearchHeroes";
 
 class App extends React.Component {
   state = {
     allHeros: [],
     heroToShow: [],
-    idToShow: []
+    idToShow: [],
+    allName: [],
   }
 
   componentDidMount() {
@@ -20,10 +22,13 @@ class App extends React.Component {
     const rickMorton = await fetch('https://rickandmortyapi.com/api/character');
     const rickMortonJSON = await rickMorton.json()
     const nameId = rickMortonJSON.results
+    const names = nameId.map(e => e.name)
+  
 
     this.setState({
       allHeros: nameId,
-      idToShow: [1]
+      idToShow: [1],
+      allName: names
     })
     this.updateHeroesToShow()
   }
@@ -44,6 +49,7 @@ class App extends React.Component {
   render() {
     return(
       <div className="App" id="root">
+        <SerachHeroes  allHeros={this.state.allHeros}/>
         <Heroes showHero = {this.state.heroToShow} />
         <Btn action={this.nextHero.bind(this)}/>
       </div>

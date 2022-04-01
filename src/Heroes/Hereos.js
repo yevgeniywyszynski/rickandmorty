@@ -12,7 +12,7 @@ const Heroes = ({showHero}) => {
             <HeroDescription {...hero}/>
           </div>
         ))}
-      </div>
+        </div>
     )
 }
 
