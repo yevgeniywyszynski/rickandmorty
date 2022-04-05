@@ -6,8 +6,6 @@ const HeroDescription = ({name, status, episode}) => {
     const [heroStatus, setHeroStatus] = useState(status)
 
     useEffect(() => {
-        console.log("changed")
-        console.log(name)
     }, [heroName, heroStatus, name])
 
     return(

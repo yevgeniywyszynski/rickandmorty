@@ -29,9 +29,19 @@ const App = () => {
     setHerosToShow(allHeros.filter(hero => idsToShow.includes(hero.id)))
   }, [idsToShow, allHeros])
 
+  const onChange = (filteredNames) => {
+    if(filteredNames.length){
+      setHerosToShow(filteredNames)
+    }
+    else {
+     setHerosToShow(allHeros.filter(hero => idsToShow.includes(hero.id)))
+     //setHerosToShow(herosToShow)
+    }
+  }
+
     return(
       <div className="App" id="root">
-        <SerachHeroes  allHeros={allHeros}/>
+        <SerachHeroes  allHeros={allHeros} onChange={onChange}/>
         <Heroes showHero = {herosToShow} />
         <Btn action={() => (setIdsToShow(getNewId(idsToShow)))}/>
       </div>

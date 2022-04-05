@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import styles from '../SearchHeroes/SearchHeroes.module.scss'
-const SearchHeroes = ({allHeros}) => {
+const SearchHeroes = ({allHeros, onChange}) => {
 
     const [heroes, setHeroes] = useState([])
     const [searchPharse, setSearch] = useState('')
@@ -10,14 +10,19 @@ const SearchHeroes = ({allHeros}) => {
         setHeroes(allHeros)
     }, [allHeros])
 
-    useEffect(() => {
+    useEffect( () => {
             const pattern = new RegExp(searchPharse, 'i');
+            console.log(pattern)
             if(searchPharse){
                 const filterName = heroes.filter(hero => pattern.test(hero.name));
                 setFiltered(filterName)
+            }else {
+                setFiltered([])
             }
     }, [searchPharse, heroes])
  
+    useEffect(() =>{onChange(filteredNames)}, [filteredNames])
+
     const handleChange = (event) => {
             setSearch(event.target.value)
     } 
