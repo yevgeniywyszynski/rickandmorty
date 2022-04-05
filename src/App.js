@@ -29,15 +29,17 @@ const App = () => {
     setHerosToShow(allHeros.filter(hero => idsToShow.includes(hero.id)))
   }, [idsToShow, allHeros])
 
-  const onChange = (filteredNames) => {
+  const onChange = (filteredNames, searchPharse) => {
     if(filteredNames.length){
       setHerosToShow(filteredNames)
     }
-    else {
+    else if (!searchPharse){
      setHerosToShow(allHeros.filter(hero => idsToShow.includes(hero.id)))
-     //setHerosToShow(herosToShow)
+    } else {
+      setHerosToShow([])
     }
   }
+
 
     return(
       <div className="App" id="root">

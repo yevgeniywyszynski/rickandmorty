@@ -21,7 +21,7 @@ const SearchHeroes = ({allHeros, onChange}) => {
             }
     }, [searchPharse, heroes])
  
-    useEffect(() =>{onChange(filteredNames)}, [filteredNames])
+    useEffect(() =>{onChange(filteredNames, searchPharse)}, [filteredNames])
 
     const handleChange = (event) => {
             setSearch(event.target.value)
