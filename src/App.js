@@ -8,10 +8,11 @@ import SerachHeroes from "./SearchHeroes/SearchHeroes";
 
 const getNewId = (currentArr) => [...currentArr, currentArr[currentArr.length-1] + 1]
 
-const App = () => {
+const App = ({loadAllHerosRequest}) => {
   const [allHeros, setAllHeros] = useState([])
   const [herosToShow, setHerosToShow] = useState([])
   const [idsToShow, setIdsToShow] = useState([])
+  loadAllHerosRequest()
   
   useEffect(()=> {
     const fetchData = async () => {   
