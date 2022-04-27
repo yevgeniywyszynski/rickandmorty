@@ -3,11 +3,11 @@ import App from './App';
 import { getAllHeros, loadAllHerosRequest } from "./redux/AllHerosRedux";
 
 const mapStateToProps = state => ({
-    allHeros : getAllHeros(state)
+    reduxAllHeros : getAllHeros(state)
 })
 
 const mapDisptachToProps = dispatch => ({
-    loadAllHerosRequest: () => dispatch(loadAllHerosRequest())
+    loadAllHerosRequest: (idPage) => dispatch(loadAllHerosRequest(idPage))
 })
 
 export default connect(mapStateToProps, mapDisptachToProps )(App);

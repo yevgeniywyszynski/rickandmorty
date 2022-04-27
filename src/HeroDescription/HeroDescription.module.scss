@@ -1,10 +1,22 @@
+$font-familyTapestry: 'Tapestry', cursive;
+
 .nameStl {
     font-size: 20px;
     font-weight: 300;
+    font-family: $font-familyTapestry;
 }
 
 .nameSp {
     font-size: 25px;
-    font-family:'Times New Roman', Times, serif;
     margin-left: 10px;
+    font-family: $font-familyTapestry;
+}
+
+@media (max-width: 600px) {
+    .nameStl {
+        font-size: 14px;
+    }
+    .nameSp {
+        font-size: 14px;
+    }
 }

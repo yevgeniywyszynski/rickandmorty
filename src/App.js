@@ -4,31 +4,33 @@ import ImageHero from "./ImageHero/ImageHero";
 import HeroDescription from "./HeroDescription/HeroDescription";
 import Btn from "./Btn/Btn";
 import Heroes from "./Heroes/Hereos";
-import SerachHeroes from "./SearchHeroes/SearchHeroes";
+import SerachHeroes from "./SearchHeroes/SearchHeroesContainer";
 
 const getNewId = (currentArr) => [...currentArr, currentArr[currentArr.length-1] + 1]
 
-const App = ({loadAllHerosRequest}) => {
+const App = ({loadAllHerosRequest, reduxAllHeros}) => {
   const [allHeros, setAllHeros] = useState([])
   const [herosToShow, setHerosToShow] = useState([])
   const [idsToShow, setIdsToShow] = useState([])
-  loadAllHerosRequest()
   
   useEffect(()=> {
     const fetchData = async () => {   
-      const rickMorton = await fetch('https://rickandmortyapi.com/api/character')
-      const rickMortonJSON = await rickMorton.json()
-      const nameId = rickMortonJSON.results
-  
-      setAllHeros(nameId)
+      loadAllHerosRequest()
       setIdsToShow([1])
     }
     fetchData()    
   }, [])
 
+  useEffect(() => {
+    if(reduxAllHeros.data){
+      setAllHeros(reduxAllHeros.data)}
+    
+  }, [reduxAllHeros])
+
   useEffect(()=>{
     setHerosToShow(allHeros.filter(hero => idsToShow.includes(hero.id)))
-  }, [idsToShow, allHeros])
+
+  }, [idsToShow])
 
   const onChange = (filteredNames, searchPharse) => {
     if(filteredNames.length){
@@ -44,7 +46,7 @@ const App = ({loadAllHerosRequest}) => {
 
     return(
       <div className="App" id="root">
-        <SerachHeroes  allHeros={allHeros} onChange={onChange}/>
+        <SerachHeroes onChange={onChange}/>
         <Heroes showHero = {herosToShow} />
         <Btn action={() => (setIdsToShow(getNewId(idsToShow)))}/>
       </div>
