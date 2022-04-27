@@ -5,6 +5,7 @@ import HeroDescription from "./HeroDescription/HeroDescription";
 import Btn from "./Btn/Btn";
 import Heroes from "./Heroes/Hereos";
 import SerachHeroes from "./SearchHeroes/SearchHeroesContainer";
+import Footer from "./Footer/Footer";
 
 const getNewId = (currentArr) => [...currentArr, currentArr[currentArr.length-1] + 1]
 
@@ -49,6 +50,7 @@ const App = ({loadAllHerosRequest, reduxAllHeros}) => {
         <SerachHeroes onChange={onChange}/>
         <Heroes showHero = {herosToShow} />
         <Btn action={() => (setIdsToShow(getNewId(idsToShow)))}/>
+        <Footer />
       </div>
     )
   

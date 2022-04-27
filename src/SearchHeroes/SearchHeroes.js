@@ -13,7 +13,6 @@ const SearchHeroes = ({reduxAllHeros, onChange, filterFilteredNames, searchSearc
 
     useEffect( () => {
             const pattern = new RegExp(searchPharse, 'i');
-            console.log(pattern)
             if(searchPharse){
                 const filterName = heroes.filter(hero => pattern.test(hero.name));
                 setFiltered(filterName)
@@ -35,7 +34,7 @@ const SearchHeroes = ({reduxAllHeros, onChange, filterFilteredNames, searchSearc
         <div className={styles.inputWrapper}>
             <input className={styles.inputHero}
             type="text"
-            placeholder="Search yours heroes"
+            placeholder="Find your heroes"
             onChange={handleChange}
             value={searchPharse}
             />
