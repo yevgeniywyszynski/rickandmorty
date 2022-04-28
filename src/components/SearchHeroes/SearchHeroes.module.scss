@@ -1,11 +1,34 @@
 $font-familyTapestry: 'Tapestry', cursive;
 
-.inputWrapper {
-    text-align: center;
+.navWrapper {
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    align-items: center;
     margin-bottom: 30px;
+
+    .social {
+        width: 100%;
+        display: flex;
+        .instaIcon {
+            text-decoration: none;
+            font-size: 30px;
+            color: #FB5246;
+            margin-right: 10px;
+        }
+        .faceIcon {
+            text-decoration: none;
+            font-size: 30px;
+            color: #3b5998;
+            margin-right: 10px;
+        }
+    }
+}
+
+
+.inputWrapper {
     .inputHero {
         padding: 10px 30px;
-        width: 60%;
+        width: 70%;
         font-family: $font-familyTapestry;
         font-size: 17px;
         font-weight: 700;

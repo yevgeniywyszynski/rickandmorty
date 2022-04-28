@@ -31,13 +31,19 @@ const SearchHeroes = ({reduxAllHeros, onChange, filterFilteredNames, searchSearc
     } 
 
     return(
-        <div className={styles.inputWrapper}>
-            <input className={styles.inputHero}
-            type="text"
-            placeholder="Find your heroes"
-            onChange={handleChange}
-            value={searchPharse}
-            />
+        <div className={styles.navWrapper}>
+            <div className={styles.social}>
+                <a className={styles.instaIcon} href="https://www.instagram.com/rickandmorty/"><i className="fa-brands fa-instagram "></i></a>
+                <a className={styles.faceIcon} href="https://www.facebook.com/RickandMorty/"><i className="fa-brands fa-facebook "></i></a>
+            </div>
+            <div className={styles.inputWrapper}>
+                <input className={styles.inputHero}
+                type="text"
+                placeholder="Find your heroes"
+                onChange={handleChange}
+                value={searchPharse}
+                />
+            </div>
         </div>
     )
 }
