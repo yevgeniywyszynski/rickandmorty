@@ -1,3 +1,5 @@
+$font-familyTapestry: 'Tapestry', cursive;
+
 .btn {
     border: 2px solid #fff;
     background-color: transparent;
@@ -8,6 +10,7 @@
     position: relative;
     margin-top: 20px;
     font-weight: 600;
+    font-family: $font-familyTapestry;
 }
 
 .btn::after{
