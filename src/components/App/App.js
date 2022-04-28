@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import styles from "../src/App.module.scss"
-import ImageHero from "./ImageHero/ImageHero";
-import HeroDescription from "./HeroDescription/HeroDescription";
-import Btn from "./Btn/Btn";
-import Heroes from "./Heroes/Hereos";
-import SerachHeroes from "./SearchHeroes/SearchHeroesContainer";
-import Footer from "./Footer/Footer";
+import styles from "../App/App.module.scss";
+import Btn from "../Btn/Btn";
+import Heroes from "../Heroes/Hereos";
+import SerachHeroes from "../SearchHeroes/SearchHeroesContainer";
+import Footer from "../Footer/Footer";
 
 const getNewId = (currentArr) => [...currentArr, currentArr[currentArr.length-1] + 1]
 

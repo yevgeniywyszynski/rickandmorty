@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import App from './App';
-import { getAllHeros, loadAllHerosRequest } from "./redux/AllHerosRedux";
+import App from '../App/App';
+import { getAllHeros, loadAllHerosRequest } from "../../redux/AllHerosRedux";
 
 const mapStateToProps = state => ({
     reduxAllHeros : getAllHeros(state)

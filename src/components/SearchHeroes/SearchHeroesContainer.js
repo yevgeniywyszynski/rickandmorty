@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import SearchHeroes from './SearchHeroes';
-import { getAllHeros} from "../redux/AllHerosRedux";
-import { filteredNames, searchPharse } from "../redux/SearchHeroesRedux";
+import { getAllHeros} from "../../redux/AllHerosRedux";
+import { filteredNames, searchPharse } from "../../redux/SearchHeroesRedux";
 
 const mapStateToProps = state => ({
     reduxAllHeros : getAllHeros(state)
