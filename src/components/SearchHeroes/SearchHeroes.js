@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from "react";
-import styles from '../SearchHeroes/SearchHeroes.module.scss'
+import styles from './SearchHeroes.module.scss'
 
 const SearchHeroes = ({reduxAllHeros, onChange, filterFilteredNames, searchSearchPharse}) => {
 

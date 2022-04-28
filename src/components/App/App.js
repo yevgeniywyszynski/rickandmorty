@@ -7,7 +7,7 @@ import Footer from "../Footer/Footer";
 
 const getNewId = (currentArr) => [...currentArr, currentArr[currentArr.length-1] + 1]
 
-const App = ({loadAllHerosRequest, reduxAllHeros}) => {
+const App = ({loadAllHerosRequest, reduxAllHeros, getSearchPhrase}) => {
   const [allHeros, setAllHeros] = useState([])
   const [herosToShow, setHerosToShow] = useState([])
   const [idsToShow, setIdsToShow] = useState([])
@@ -47,7 +47,7 @@ const App = ({loadAllHerosRequest, reduxAllHeros}) => {
       <div className="App" id="root">
         <SerachHeroes onChange={onChange}/>
         <Heroes showHero = {herosToShow} />
-        <Btn action={() => (setIdsToShow(getNewId(idsToShow)))}/>
+        {(getSearchPhrase === '') && <Btn action={() => (setIdsToShow(getNewId(idsToShow)))}/>}
         <Footer />
       </div>
     )

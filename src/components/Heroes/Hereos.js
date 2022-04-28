@@ -1,7 +1,7 @@
 import React from "react";
 import { v4 as uuidv4 } from 'uuid';
-import styles from "../Heroes/Heroes.module.scss"
-import ImageHero from "../ImageHero/ImageHero";
+import styles from "./Heroes.module.scss"
+import ImageHero from "../../components/ImageHero/ImageHero";
 import HeroDescription from "../HeroDescription/HeroDescription";
 
 const Heroes = ({showHero}) => {

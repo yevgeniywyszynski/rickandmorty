@@ -1,5 +1,10 @@
 
+export const getSearchPhrase = ({search}) => {
+    return search.searchPhrase
+};
+
 const reducerName = 'search'
+
 
 const createActionName = name => `app/${reducerName}/${name}`;
 
