@@ -1,12 +1,8 @@
 .herosWrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
-    .heroWrapper{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
+    width: 300px;
 }
 
 @media (max-width: 1100px) {

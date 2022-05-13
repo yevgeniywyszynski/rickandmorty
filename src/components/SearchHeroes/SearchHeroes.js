@@ -30,10 +30,6 @@ const SearchHeroes = ({reduxAllHeros, filterFilteredNames, searchSearchPharse}) 
 
     return(
         <div className={styles.navWrapper}>
-            <div className={styles.social}>
-                <a className={styles.instaIcon} href="https://www.instagram.com/rickandmorty/"><i className="fa-brands fa-instagram "></i></a>
-                <a className={styles.faceIcon} href="https://www.facebook.com/RickandMorty/"><i className="fa-brands fa-facebook "></i></a>
-            </div>
             <div className={styles.inputWrapper}>
                 <input className={styles.inputHero}
                 type="text"
@@ -41,6 +37,10 @@ const SearchHeroes = ({reduxAllHeros, filterFilteredNames, searchSearchPharse}) 
                 onChange={handleChange}
                 value={searchPharse}
                 />
+            </div>
+            <div className={styles.social}>
+                <a className={styles.instaIcon} href="https://www.instagram.com/rickandmorty/"><i className="fa-brands fa-instagram "></i></a>
+                <a className={styles.faceIcon} href="https://www.facebook.com/RickandMorty/"><i className="fa-brands fa-facebook "></i></a>
             </div>
         </div>
     )

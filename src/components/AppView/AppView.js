@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "../App/App.module.scss";
+import styles from "./AppView.module.scss";
 import Btn from "../Btn/Btn";
 import Heroes from "../Heroes/Hereos";
 import SerachHeroes from "../SearchHeroes/SearchHeroesContainer";
@@ -7,7 +7,6 @@ import Footer from "../Footer/Footer";
 import {Outlet} from 'react-router-dom';
 
 const getNewId = (currentArr) => [...currentArr, currentArr[currentArr.length-1] + 1]
-
 
 const AppView = ({loadAllHerosRequest, reduxAllHeros, getSearchPhrase, getFilterFilteredNames}) => {
     const [allHeros, setAllHeros] = useState([])

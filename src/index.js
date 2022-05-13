@@ -9,6 +9,3 @@ ReactDOM.render(
     <Provider store={store}><App /></Provider>,
   document.getElementById('root')
 );
-
-// uruchomic redux devtools
-// sprawdzic jak zachowuje się redux po wejściu w bohatera

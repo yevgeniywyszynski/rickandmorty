@@ -4,13 +4,12 @@ import { findHeroById, loadAllHerosRequest } from "../../../redux/AllHerosRedux"
 
 const mapStateToProps = (state) => {
     return {
-    heroToShow : (id) => findHeroById(state, id),
+        heroToShow : (id) => findHeroById(state, id),
     }
 }
 
 const mapDisptachToProps = dispatch => ({
     loadAllHerosRequest: (idPage) => dispatch(loadAllHerosRequest(idPage))
-
 })
 
 export default connect(mapStateToProps, mapDisptachToProps )(HeroView);

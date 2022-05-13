@@ -7,8 +7,8 @@ $font-familyTapestry: 'Tapestry', cursive;
     margin-bottom: 30px;
 
     .social {
-        width: 100%;
         display: flex;
+        margin-left: 10px;
         .instaIcon {
             text-decoration: none;
             font-size: 30px;
@@ -28,7 +28,6 @@ $font-familyTapestry: 'Tapestry', cursive;
 .inputWrapper {
     .inputHero {
         padding: 10px 30px;
-        width: 70%;
         font-family: $font-familyTapestry;
         font-size: 17px;
         font-weight: 700;
