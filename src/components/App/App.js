@@ -1,57 +1,17 @@
-import React, { useEffect, useState } from "react";
-import styles from "../App/App.module.scss";
-import Btn from "../Btn/Btn";
-import Heroes from "../Heroes/Hereos";
-import SerachHeroes from "../SearchHeroes/SearchHeroesContainer";
-import Footer from "../Footer/Footer";
+import React from "react";
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import AppView from '../AppView/AppViewContainer';
+import HeroView from "./HeroView/HeroViewContainer";
 
-const getNewId = (currentArr) => [...currentArr, currentArr[currentArr.length-1] + 1]
-
-const App = ({loadAllHerosRequest, reduxAllHeros, getSearchPhrase}) => {
-  const [allHeros, setAllHeros] = useState([])
-  const [herosToShow, setHerosToShow] = useState([])
-  const [idsToShow, setIdsToShow] = useState([])
-  
-  useEffect(()=> {
-    const fetchData = async () => {   
-      loadAllHerosRequest()
-      setIdsToShow([1])
-    }
-    fetchData()    
-  }, [])
-
-  useEffect(() => {
-    if(reduxAllHeros.data){
-      setAllHeros(reduxAllHeros.data)}
-    
-  }, [reduxAllHeros])
-
-  useEffect(()=>{
-    setHerosToShow(allHeros.filter(hero => idsToShow.includes(hero.id)))
-
-  }, [idsToShow])
-
-  const onChange = (filteredNames, searchPharse) => {
-    if(filteredNames.length){
-      setHerosToShow(filteredNames)
-    }
-    else if (!searchPharse){
-     setHerosToShow(allHeros.filter(hero => idsToShow.includes(hero.id)))
-    } else {
-      setHerosToShow([])
-    }
-  }
-
-
-    return(
-      <div className="App" id="root">
-        <SerachHeroes onChange={onChange}/>
-        <Heroes showHero = {herosToShow} />
-        {(getSearchPhrase === '') && <Btn action={() => (setIdsToShow(getNewId(idsToShow)))}/>}
-        <Footer />
-      </div>
-    )
-  
+const App = () => {
+  return(
+    <Router>
+      <Routes>
+        <Route path='/' element={<AppView/>} exact/>
+          <Route path='/character/:id' element={<HeroView/>} exact/>
+      </Routes>
+    </Router>
+  )
 }
 
 export default App;

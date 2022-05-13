@@ -3,6 +3,10 @@ export const getSearchPhrase = ({search}) => {
     return search.searchPhrase
 };
 
+export const getFilterFilteredNames = ({search}) => {
+    return search.filteredNames
+}
+
 const reducerName = 'search'
 
 

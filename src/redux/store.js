@@ -1,4 +1,4 @@
-import { applyMiddleware, combineReducers, createStore, compose } from "redux"
+import { applyMiddleware, combineReducers, createStore, compose,reduxImmutableStateInvariant} from "redux"
 import allHerosRedux from './AllHerosRedux';
 import searchHerosRedux from "../redux/SearchHeroesRedux";
 import thunk from 'redux-thunk'
@@ -21,7 +21,7 @@ const storeReducer = combineReducers(reducers);
 const store = createStore (
     storeReducer,
     initalState,
-    compose(applyMiddleware(thunk))
+    compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()),
 )
 
 export default store

@@ -2,6 +2,7 @@
 import axios from 'axios';
 
 export const getAllHeros = ({allHeros}) => allHeros;
+export const findHeroById = ({allHeros}, id) => allHeros.data.filter(hero => hero.id == id)
 
 const reducerName = 'heros'
 

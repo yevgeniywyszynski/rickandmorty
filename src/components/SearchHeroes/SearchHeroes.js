@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from "react";
 import styles from './SearchHeroes.module.scss'
 
-const SearchHeroes = ({reduxAllHeros, onChange, filterFilteredNames, searchSearchPharse}) => {
+const SearchHeroes = ({reduxAllHeros, filterFilteredNames, searchSearchPharse}) => {
 
     const [heroes, setHeroes] = useState([])
     const [searchPharse, setSearch] = useState('')
@@ -21,13 +21,11 @@ const SearchHeroes = ({reduxAllHeros, onChange, filterFilteredNames, searchSearc
             }
     }, [searchPharse, heroes])
  
-    useEffect(() =>{onChange(filteredNames, searchPharse)}, [filteredNames])
-
     useEffect(()=>{filterFilteredNames(filteredNames)},[filteredNames])
     useEffect(()=> {searchSearchPharse(searchPharse)}, [searchPharse])
 
     const handleChange = (event) => {
-            setSearch(event.target.value)
+        setSearch(event.target.value)
     } 
 
     return(
