@@ -1,0 +1,22 @@
+$font-familyTapestry: 'Tapestry', cursive;
+
+.heroViewWrapper{
+    padding: 20px 50px;
+    .titleInfo {
+        font-size: 40px;
+        font-family: $font-familyTapestry;
+        margin-bottom: 20px;
+    }
+    .personalDataWrapper{
+        line-height: 30px;
+    }
+    .name{
+        font-size: 20px;
+        font-weight: 300;
+        font-family: $font-familyTapestry;
+    }
+    .nameStyle{
+        font-size: 25px;
+        color: #07B5CB;
+    }
+}

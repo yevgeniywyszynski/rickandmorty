@@ -2,15 +2,23 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
+    padding-left: 50px;
     width: 300px;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1100px) { 
+    .herosWrapper { 
+        display: flex; 
+        flex-direction: column; 
+    } 
+    .herosWrapper .heroWrapper { 
+        display: flex; 
+    } 
+}
+
+@media (max-width: 600px) {
     .herosWrapper {
-        display: flex;
-        flex-direction: column;
-    }
-    .herosWrapper .heroWrapper {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 }

@@ -6,12 +6,11 @@ import { getSearchPhrase, getFilterFilteredNames} from '../../redux/SearchHeroes
 const mapStateToProps = state => ({
     reduxAllHeros : getAllHeros(state),
     getSearchPhrase: getSearchPhrase(state),
-    getFilterFilteredNames : getFilterFilteredNames(state)
+    getFilterFilteredNames : getFilterFilteredNames(state),
 })
 
 const mapDisptachToProps = dispatch => ({
     loadAllHerosRequest: (idPage) => dispatch(loadAllHerosRequest(idPage))
-
 })
 
 export default connect(mapStateToProps, mapDisptachToProps )(AppView);

@@ -22,12 +22,16 @@ export const errorRequest = payload => ({payload, type: ERROR_REQUEST});
 export const loadAllHeros = payload => ({payload, type: LOAD_ALLHEROS});
 export const loadFirstHeros = payload => ({payload, type: LOAD_FIRSTHEROS})
 
-export const loadAllHerosRequest = () => {
+export const loadAllHerosRequest = (pageId) => {
     return async dispatch => {
         dispatch(startRequest());
 
         try {
-            let allHeros = await axios.get(`https://rickandmortyapi.com/api/character?`)
+            let allHeros = await axios.get(`https://rickandmortyapi.com/api/character?page=${pageId}`)
+            if(pageId == 1) {
+                let firstPage = await axios.get('https://rickandmortyapi.com/api/character?page=1')
+                dispatch(loadFirstHeros(firstPage.data.results))
+            }
             dispatch(loadFirstHeros(allHeros.data.results));
 
             while(allHeros.data.info.next){

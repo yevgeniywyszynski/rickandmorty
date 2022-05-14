@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
-import HeroView from '../HeroView/HeroView';
-import { findHeroById, loadAllHerosRequest } from "../../../redux/AllHerosRedux";
+import HeroView from './HeroView';
+import { findHeroById, loadAllHerosRequest, getAllHeros } from "../../redux/AllHerosRedux";
 
 const mapStateToProps = (state) => {
     return {
+        reduxAllHeros : getAllHeros(state),
         heroToShow : (id) => findHeroById(state, id),
     }
 }

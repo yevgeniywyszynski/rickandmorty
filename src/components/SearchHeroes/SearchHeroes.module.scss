@@ -1,14 +1,18 @@
 $font-familyTapestry: 'Tapestry', cursive;
 
 .navWrapper {
-    display: grid;
-    grid-template-columns: 1fr 9fr;
     align-items: center;
-    margin-bottom: 30px;
-
+    padding: 20px 50px;
+    display: flex;
+    .inputWrapper{
+        width: 300px;
+        .inputHero{
+            width: 100%;
+        }
+    }
     .social {
         display: flex;
-        margin-left: 10px;
+        margin-left: 20px;
         .instaIcon {
             text-decoration: none;
             font-size: 30px;
@@ -32,5 +36,18 @@ $font-familyTapestry: 'Tapestry', cursive;
         font-size: 17px;
         font-weight: 700;
         color: #000;
+    }
+}
+
+@media (max-width: 600px) {
+    .navWrapper{
+        display: block;
+        .inputWrapper{
+            width: 100%;
+        }
+        .social {
+            margin-left: 0;
+            margin-top: 20px;
+        }
     }
 }

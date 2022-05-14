@@ -1,10 +1,13 @@
-import { applyMiddleware, combineReducers, createStore, compose,reduxImmutableStateInvariant} from "redux"
+import { applyMiddleware, combineReducers, createStore, compose} from "redux"
 import allHerosRedux from './AllHerosRedux';
 import searchHerosRedux from "../redux/SearchHeroesRedux";
 import thunk from 'redux-thunk'
 
 const initalState = {
-    allHeros: [],
+    allHeros: {
+        data: [],
+        request:{},
+    },
     search: {
         searchPhrase: '',
         filteredNames: [],
