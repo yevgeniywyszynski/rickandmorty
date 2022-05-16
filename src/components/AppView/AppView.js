@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styles from "./AppView.module.scss";
 import Btn from "../Btn/Btn";
-import Heroes from "../Heroes/Hereos";
+import Heroes from "../Heroes/HeroesContainer";
 import SerachHeroes from "../SearchHeroes/SearchHeroesContainer";
 import Footer from "../Footer/Footer";
-import {Outlet} from 'react-router-dom';
+import {Outlet, Link} from 'react-router-dom';
 
-const getNewId = (currentMaxId) => currentMaxId + 3
+const getNewId = (currentMaxId) => currentMaxId + 20
 
 const AppView = ({loadAllHerosRequest, reduxAllHeros, getSearchPhrase, getFilterFilteredNames}) => {
   const [allHeros, setAllHeros] = useState([])
@@ -16,12 +16,11 @@ const AppView = ({loadAllHerosRequest, reduxAllHeros, getSearchPhrase, getFilter
   useEffect(()=> {
     if("data" in reduxAllHeros && reduxAllHeros.data.length == 0) {
     const fetchData = async () => {   
-      loadAllHerosRequest()
-        
+      loadAllHerosRequest(1)  
     }
     fetchData()
   }
-  setIdsToShow(3)
+  setIdsToShow(20)
   }, [])
   
   useEffect(() => {
@@ -31,9 +30,6 @@ const AppView = ({loadAllHerosRequest, reduxAllHeros, getSearchPhrase, getFilter
   
   useEffect(()=>{
     setHerosToShow(allHeros.filter(hero => idsToShow >= hero.id))
-    //if(idsToShow.length%20==0){
-    //loadAllHerosRequest(Math.floor(idsToShow.length/20))
-    //}
   }, [idsToShow])
   
   useEffect (() => {
@@ -46,13 +42,20 @@ const AppView = ({loadAllHerosRequest, reduxAllHeros, getSearchPhrase, getFilter
       setHerosToShow([])
     }
   }, [getSearchPhrase, getFilterFilteredNames])
+
+  const getPageId = (e) => {
+    loadAllHerosRequest((idsToShow+20)/20)
+    console.log((idsToShow+20)/20)
+    setIdsToShow(getNewId(idsToShow))
+  }
   
 
   return(
     <div className="App">
       <SerachHeroes />
+      <Link to="/favourite-characters">All favorites</Link>
       <Heroes showHero = {herosToShow} />
-      {(getSearchPhrase === '') && <Btn action={() => (setIdsToShow(getNewId(idsToShow)))}/>}
+      {(getSearchPhrase === '') && <Btn action={(e) => getPageId(e)}/>}
       <Footer />
       <Outlet />
     </div>

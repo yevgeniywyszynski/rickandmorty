@@ -7,6 +7,7 @@ const initalState = {
     allHeros: {
         data: [],
         request:{},
+        favoriteHeroesIds: []
     },
     search: {
         searchPhrase: '',
