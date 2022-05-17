@@ -17,15 +17,10 @@ const Heroes = ({showHero, addHeroes, favouriteHeroesIds}) => {
               <button className={styles.btnAdd} disabled><AiFillHeart className={styles.heart} /></button>
             : <button className={styles.btnAdd} onClick= {() => addHeroes(hero.id)} type="button"><AiOutlineHeart className={styles.heart} /></button>
             }
-              </div>
-          
+          </div>
             <Link to={"/character/" + hero.id} className={styles.link}>
-            
-
               <ImageHero {...hero} />
             </Link>
-            
-      
         </div>
       ))}
     </div>
