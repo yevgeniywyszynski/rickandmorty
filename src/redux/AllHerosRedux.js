@@ -4,6 +4,7 @@ import axios from 'axios';
 export const getAllHeros = ({allHeros}) => allHeros;
 export const findHeroById = ({allHeros}, id) => allHeros.data.filter(hero => hero.id == id)
 export const getFavoriteHeros = ({allHeros}) => allHeros.data.filter(hero => allHeros.favoriteHeroesIds.includes(hero.id))
+export const getFavouriteHeroesIds = ({allHeros}) => allHeros.favoriteHeroesIds
 
 const reducerName = 'heros'
 
@@ -63,7 +64,7 @@ export default function reducer(statePart = [], action = {}) {
             }
         case REMOVE_FAVORITEHEROESIDS:
             let deletedHeroesId = statePart.favoriteHeroesIds
-            deletedHeroesId.splice(deletedHeroesId.indexOf(action.payload,1))
+            deletedHeroesId.splice(deletedHeroesId.indexOf(action.payload),1)
             return {
                 ...statePart, favoriteHeroesIds: deletedHeroesId
             }

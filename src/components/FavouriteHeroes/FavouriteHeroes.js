@@ -4,11 +4,12 @@ import styles from '../Heroes/Heroes.module.scss';
 import ImageHero from "../ImageHero/ImageHero";
 import {Link} from 'react-router-dom';
 
-const FavouriteHeroes = ({favouriteHeroes, removeHeroes}) => {
+const FavouriteHeroes = ({heroesToShow, removeHeroes}) => {
 
+    console.log(heroesToShow)
   return(
     <div className={styles.herosWrapper}>
-      {favouriteHeroes.map(hero => (
+      {heroesToShow.map(hero => (
         <div className={styles.heroWrapper} key={uuidv4()} >
           <Link to={"/favourite-characters"}>
             <ImageHero {...hero} />
@@ -21,4 +22,3 @@ const FavouriteHeroes = ({favouriteHeroes, removeHeroes}) => {
 }
 
 export default FavouriteHeroes;
-

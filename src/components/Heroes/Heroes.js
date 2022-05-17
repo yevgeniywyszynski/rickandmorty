@@ -4,7 +4,7 @@ import styles from "./Heroes.module.scss"
 import ImageHero from "../ImageHero/ImageHero";
 import {Link} from 'react-router-dom';
 
-const Heroes = ({showHero, addHeroes}) => {
+const Heroes = ({showHero, addHeroes, favouriteHeroesIds}) => {
   
   return(
     <div className={styles.herosWrapper}>
@@ -13,7 +13,10 @@ const Heroes = ({showHero, addHeroes}) => {
           <Link to={"/character/" + hero.id}>
             <ImageHero {...hero} />
           </Link>
-          <button onClick= {() => addHeroes(hero.id)} type="button">Favorite Heroes</button>
+          {favouriteHeroesIds.includes(hero.id) ?
+           <button disabled onClick= {() => addHeroes(hero.id)} type="button">Favorite Heroes</button>
+           : <button onClick= {() => addHeroes(hero.id)} type="button">Favorite Heroes</button>
+          }
         </div>
       ))}
     </div>

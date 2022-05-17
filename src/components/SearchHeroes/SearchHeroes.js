@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from "react";
 import styles from './SearchHeroes.module.scss'
+import {Outlet, Link} from 'react-router-dom';
 
 const SearchHeroes = ({reduxAllHeros, filterFilteredNames, searchSearchPharse}) => {
 
@@ -42,6 +43,7 @@ const SearchHeroes = ({reduxAllHeros, filterFilteredNames, searchSearchPharse}) 
                 <a className={styles.instaIcon} href="https://www.instagram.com/rickandmorty/"><i className="fa-brands fa-instagram "></i></a>
                 <a className={styles.faceIcon} href="https://www.facebook.com/RickandMorty/"><i className="fa-brands fa-facebook "></i></a>
             </div>
+            <Link to="/favourite-characters">All favorites</Link>
         </div>
     )
 }

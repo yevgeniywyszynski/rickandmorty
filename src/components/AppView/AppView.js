@@ -4,9 +4,11 @@ import Btn from "../Btn/Btn";
 import Heroes from "../Heroes/HeroesContainer";
 import SerachHeroes from "../SearchHeroes/SearchHeroesContainer";
 import Footer from "../Footer/Footer";
-import {Outlet, Link} from 'react-router-dom';
+import {Outlet} from 'react-router-dom';
 
-const getNewId = (currentMaxId) => currentMaxId + 20
+const PAGE_SIZE = 20
+
+const getNewId = (currentMaxId) => currentMaxId + PAGE_SIZE
 
 const AppView = ({loadAllHerosRequest, reduxAllHeros, getSearchPhrase, getFilterFilteredNames}) => {
   const [allHeros, setAllHeros] = useState([])
@@ -20,7 +22,7 @@ const AppView = ({loadAllHerosRequest, reduxAllHeros, getSearchPhrase, getFilter
     }
     fetchData()
   }
-  setIdsToShow(20)
+  setIdsToShow(PAGE_SIZE)
   }, [])
   
   useEffect(() => {
@@ -44,8 +46,8 @@ const AppView = ({loadAllHerosRequest, reduxAllHeros, getSearchPhrase, getFilter
   }, [getSearchPhrase, getFilterFilteredNames])
 
   const getPageId = (e) => {
-    loadAllHerosRequest((idsToShow+20)/20)
-    console.log((idsToShow+20)/20)
+    loadAllHerosRequest((idsToShow+PAGE_SIZE)/PAGE_SIZE)
+    console.log((idsToShow+PAGE_SIZE)/PAGE_SIZE)
     setIdsToShow(getNewId(idsToShow))
   }
   
@@ -53,7 +55,6 @@ const AppView = ({loadAllHerosRequest, reduxAllHeros, getSearchPhrase, getFilter
   return(
     <div className="App">
       <SerachHeroes />
-      <Link to="/favourite-characters">All favorites</Link>
       <Heroes showHero = {herosToShow} />
       {(getSearchPhrase === '') && <Btn action={(e) => getPageId(e)}/>}
       <Footer />

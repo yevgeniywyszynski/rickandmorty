@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
-import { addFavoriteHeroesIds, getFavoriteHeros} from "../../redux/AllHerosRedux";
+import { addFavoriteHeroesIds, getFavoriteHeros, getFavouriteHeroesIds} from "../../redux/AllHerosRedux";
 import Heroes from '../Heroes/Heroes'
 
 const mapStateToProps = state => ({
-    favoriteHeroes: getFavoriteHeros(state) 
+    favoriteHeroes: getFavoriteHeros(state),
+    favouriteHeroesIds: getFavouriteHeroesIds(state)
 })
 
 const mapDisptachToProps = dispatch => ({
