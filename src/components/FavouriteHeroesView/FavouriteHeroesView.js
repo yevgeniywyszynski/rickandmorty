@@ -8,9 +8,8 @@ const FavouriteHeroesView= ({favouriteHeroes}) => {
 
   return(
     <div className={styles.favouriteWrapper}>
-      <Link className={styles.homePage} to="/">HOME</Link>
+      <Link className={styles.backBtn} to="/">Back</Link>
       <FavouriteHeroes className={styles.hero} heroesToShow={favouriteHeroes} />
-      <Footer />
       <Outlet />
     </div>
   )

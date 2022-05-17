@@ -1,45 +1,32 @@
+.emptyData{
+    font-size: 40px;
+    padding: 100px 20px;
+    text-align: center;
+    font-family: "Tapestry", cursive;
+}
+
 $font-familyTapestry: 'Tapestry', cursive;
 
-.herosWrapper {
+.favouriteWrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
     padding-left: 50px;
     width: 70%;
-
-    .link{
-        text-decoration: none;
-    }
-
-    .heart{
-        font-size: 25px;
-        color: red;
-    }
-
-    .heroName{
-        color: #fff;
-        margin-bottom: 5px;
-        font-family: $font-familyTapestry;
-    }
-
-    .btnAdd{
-        border: none;
+    .removeBtn{
+        border: 1px solid #fff;
         background-color: transparent;
+        padding: 7px 17px;
+        margin-top: 5px;
         color: #fff;
         cursor: pointer;
         font-family: $font-familyTapestry;
         font-size: 15px;
     }
-
-    .nameWrapper{
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
 }
 
 @media (max-width: 1100px) { 
-    .herosWrapper { 
+    .favouriteWrapper  { 
         grid-template-columns: 1fr 1fr;
 
         img{
@@ -49,11 +36,11 @@ $font-familyTapestry: 'Tapestry', cursive;
 }
 
 @media (max-width: 600px) {
-    .herosWrapper {
+    .favouriteWrapper  {
         display: grid;
         grid-template-columns: 1fr;
 
-        .btnAdd{
+        .removeBtn{
             padding: 3px 5px;
             font-size: 10px;
         }

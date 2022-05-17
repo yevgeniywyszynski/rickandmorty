@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './HeroView.module.scss';
 import { v4 as uuidv4 } from 'uuid';
-import {useParams} from "react-router-dom"
+import {useParams, Link} from "react-router-dom"
 
 const HeroView = ({heroToShow, loadAllHerosRequest, reduxAllHeros}) => {
 
@@ -32,6 +32,7 @@ const HeroView = ({heroToShow, loadAllHerosRequest, reduxAllHeros}) => {
 
   return(
     <div className={styles.heroViewWrapper}>
+      <Link className={styles.backBtn} to="/">Back</Link>
       <h2 className={styles.titleInfo}>Personal Information</h2>
         {hero.map(info => (
           <div className={styles.personalDataWrapper} key={uuidv4()}>

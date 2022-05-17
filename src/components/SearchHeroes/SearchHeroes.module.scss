@@ -5,7 +5,7 @@ $font-familyTapestry: 'Tapestry', cursive;
     padding: 20px 50px;
     display: flex;
     .inputWrapper{
-        width: 300px;
+        width: 70%;
         .inputHero{
             width: 100%;
         }
@@ -39,6 +39,14 @@ $font-familyTapestry: 'Tapestry', cursive;
     }
 }
 
+.favouriteLists{
+    text-decoration: none;
+    font-size: 17px;
+    font-family: $font-familyTapestry;
+    color: #fff;
+    display: inline-block;
+}
+
 @media (max-width: 600px) {
     .navWrapper{
         display: block;
@@ -48,6 +56,9 @@ $font-familyTapestry: 'Tapestry', cursive;
         .social {
             margin-left: 0;
             margin-top: 20px;
+        }
+        .favouriteLists{
+            margin-top: 10px;
         }
     }
 }
