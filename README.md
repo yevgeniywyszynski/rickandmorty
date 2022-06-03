@@ -1,1 +1,1 @@
-https://rickandmorthyapp.herokuapp.com/
+https://rickaandmortyapp.herokuapp.com/

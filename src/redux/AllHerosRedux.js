@@ -1,10 +1,20 @@
 
 import axios from 'axios';
+import {RICK_MORTY_API_URL} from '../settings'
 
 export const getAllHeros = ({allHeros}) => allHeros;
 export const findHeroById = ({allHeros}, id) => allHeros.data.filter(hero => hero.id == id)
 export const getFavoriteHeros = ({allHeros}) => allHeros.data.filter(hero => allHeros.favoriteHeroesIds.includes(hero.id))
 export const getFavouriteHeroesIds = ({allHeros}) => allHeros.favoriteHeroesIds
+export const getMaleHero = ({allHeros}) => {
+    return {
+    request: allHeros.request,
+    data: allHeros.data.filter(hero => hero.gender == 'Male'),
+    favoriteHeroesIds: allHeros.favoriteHeroesIds,
+}
+}
+
+export const getCount = ({allHeros}) => allHeros.count
 
 const reducerName = 'heros'
 
@@ -19,6 +29,7 @@ const LOAD_FIRSTHEROS = createActionName('LOAD_FIRSTHEROS')
 
 const ADD_FAVORITEHEROESIDS = createActionName('ADD_FAVORITEHEROESIDS');
 const REMOVE_FAVORITEHEROESIDS = createActionName('REMOVE_FAVORITEHEROESIDS');
+const SET_COUNT = createActionName('SET_COUNT');
 
 
 export const startRequest = () => ({type: START_REQUEST});
@@ -30,16 +41,22 @@ export const loadFirstHeros = payload => ({payload, type: LOAD_FIRSTHEROS});
 
 export const addFavoriteHeroesIds = payload => ({payload, type: ADD_FAVORITEHEROESIDS})
 export const removeFavoriteHeroesIds = payload => ({payload, type: REMOVE_FAVORITEHEROESIDS})
+export const setCount = payload => ({payload, type: SET_COUNT})
 
 export const loadAllHerosRequest = (pageId) => {
     return async dispatch => {
         dispatch(startRequest());
 
         try {
-            let allHeros = await axios.get(`https://rickandmortyapi.com/api/character?page=${pageId}`)
+            let allHeros = await axios.get(`${RICK_MORTY_API_URL}?page=${pageId}`)
             dispatch(loadAllHeros(allHeros.data.results))
+            console.log(allHeros)
+            let count = allHeros.data.info.count
+            console.log(count) 
+            dispatch(setCount(count))
             dispatch(endRequest())
         } catch(e) {
+            console.log(e)
             dispatch(errorRequest({name: 'ERROR_REQUEST', error: 'could not fetch data'}));
         }
     }
@@ -62,6 +79,8 @@ export default function reducer(statePart = [], action = {}) {
             } else {
                 return statePart
             }
+        case SET_COUNT:
+            return {...statePart, count: action.payload}
         case REMOVE_FAVORITEHEROESIDS:
             let deletedHeroesId = statePart.favoriteHeroesIds
             deletedHeroesId.splice(deletedHeroesId.indexOf(action.payload),1)

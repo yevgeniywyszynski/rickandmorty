@@ -9,8 +9,9 @@ const App = () => {
     <Router>
       <Routes>
         <Route path='/' element={<AppView/>} exact/>
-          <Route path='/character/:id' element={<HeroView/>} exact/>
-          <Route path = '/favourite-characters' element ={<FavouriteHeroesView/>} exact />
+          <Route path='/character/:id' element={<HeroView/>} />
+          <Route path = '/favourite-characters' element ={<FavouriteHeroesView/>} />
+          <Route path="/:slug" element={<AppView />} />
       </Routes>
     </Router>
   )
