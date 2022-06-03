@@ -2,6 +2,7 @@ import React, { useState, useEffect} from "react";
 import styles from './SearchHeroes.module.scss'
 import {Link} from 'react-router-dom';
 import {INSTAGRAM_RICK,FACEBOOK_RICK} from '../../settings';
+import {FLAG_USA_URL, FLAG_POLAND_URL} from '../../settings';
 
 const SearchHeroes = ({reduxAllHeros, filterFilteredNames, searchSearchPharse, getCount, idsToShow}) => {
 
@@ -47,7 +48,11 @@ const SearchHeroes = ({reduxAllHeros, filterFilteredNames, searchSearchPharse, g
                 </div>
                 <Link className={styles.favouriteLists} to="/favourite-characters">All favorites</Link>
             </div>
-            <p className={styles.qty}>Pobrancyh : {idsToShow} z : {getCount}</p>
+            <p className={styles.qty}>Downloaded: {idsToShow} from : {getCount}</p>
+            <div className={styles.flagsWrapper}>
+                <button type="button" className={styles.btnlanguade}><img className={styles.moneyIcon} src={FLAG_USA_URL} /></button>
+                <button type="button" className={styles.btnlanguade}><img className={styles.moneyIcon} src={FLAG_POLAND_URL} /></button>
+            </div>
         </>
     )
 }

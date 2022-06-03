@@ -52,6 +52,29 @@ $font-familyTapestry: 'Tapestry', cursive;
     display: inline-block;
 }
 
+.qty {
+    font-family: $font-familyTapestry;
+    padding-left: 50px;
+    font-size: 17px;
+}
+.flagsWrapper{
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    gap: 20px;
+}
+
+.btnlanguade{
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.moneyIcon {
+    width: 30px;
+}
+
 @media (max-width: 600px) {
     .navWrapper{
         display: block;
