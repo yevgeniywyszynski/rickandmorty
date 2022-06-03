@@ -1,4 +1,4 @@
-import { applyMiddleware, combineReducers, createStore} from "redux"
+import { applyMiddleware, combineReducers, createStore, compose} from "redux"
 import allHerosRedux from './AllHerosRedux';
 import searchHerosRedux from "../redux/SearchHeroesRedux";
 import thunk from 'redux-thunk'
@@ -7,7 +7,8 @@ const initalState = {
     allHeros: {
         data: [],
         request:{},
-        favoriteHeroesIds: []
+        favoriteHeroesIds: [],
+        count: 0
     },
     search: {
         searchPhrase: '',
@@ -25,7 +26,7 @@ const storeReducer = combineReducers(reducers);
 const store = createStore (
     storeReducer,
     initalState,
-    applyMiddleware(thunk),
+    compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 )
 
 export default store

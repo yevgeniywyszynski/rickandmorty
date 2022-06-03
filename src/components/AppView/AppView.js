@@ -32,7 +32,7 @@ const AppView = ({loadAllHerosRequest, reduxAllHeros, getSearchPhrase, getFilter
   
   useEffect(()=>{
     setHerosToShow(allHeros.filter(hero => idsToShow >= hero.id))
-  }, [idsToShow])
+  }, [idsToShow, allHeros])
   
   useEffect (() => {
     if(getFilterFilteredNames.length){
@@ -54,7 +54,7 @@ const AppView = ({loadAllHerosRequest, reduxAllHeros, getSearchPhrase, getFilter
 
   return(
     <div className="App">
-      <SerachHeroes />
+      <SerachHeroes idsToShow = {idsToShow} />
       <Heroes showHero = {herosToShow} />
       {(getSearchPhrase === '') && <Btn action={(e) => getPageId(e)}/>}
       <Footer />
@@ -64,3 +64,6 @@ const AppView = ({loadAllHerosRequest, reduxAllHeros, getSearchPhrase, getFilter
 }
 
 export default AppView;
+
+
+

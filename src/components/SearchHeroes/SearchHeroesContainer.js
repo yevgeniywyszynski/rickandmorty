@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
 import SearchHeroes from './SearchHeroes';
-import { getAllHeros} from "../../redux/AllHerosRedux";
+import { getAllHeros, getCount} from "../../redux/AllHerosRedux";
 import { filteredNames, searchPharse } from "../../redux/SearchHeroesRedux";
 
 const mapStateToProps = state => ({
-    reduxAllHeros : getAllHeros(state)
+    reduxAllHeros : getAllHeros(state),
+    getCount: getCount(state)
 })
 
 const mapDisptachToProps = dispatch => ({

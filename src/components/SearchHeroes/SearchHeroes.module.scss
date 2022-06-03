@@ -1,4 +1,8 @@
 $font-familyTapestry: 'Tapestry', cursive;
+.qty {
+    padding-left: 80px;
+    margin-bottom: 20px;
+}
 
 .navWrapper {
     align-items: center;
@@ -38,6 +42,7 @@ $font-familyTapestry: 'Tapestry', cursive;
         color: #000;
     }
 }
+
 
 .favouriteLists{
     text-decoration: none;

@@ -8,6 +8,7 @@ const FavouriteHeroesView= ({favouriteHeroes}) => {
   return(
     <div className={styles.favouriteWrapper}>
       <Link className={styles.backBtn} to="/">Back</Link>
+      <p className={styles.qty}>Liczba ulubionych :{favouriteHeroes.length} </p>
       <FavouriteHeroes className={styles.hero} heroesToShow={favouriteHeroes} />
       <Outlet />
     </div>
