@@ -49,7 +49,6 @@ const AppView = ({loadAllHerosRequest, reduxAllHeros, getSearchPhrase, getFilter
 
   const getPageId = (e) => {
     loadAllHerosRequest((idsToShow+PAGE_SIZE)/PAGE_SIZE)
-    console.log((idsToShow+PAGE_SIZE)/PAGE_SIZE)
     setIdsToShow(getNewId(idsToShow))
   }
   
