@@ -1,8 +1,7 @@
 import React, { useState, useEffect} from "react";
 import styles from './SearchHeroes.module.scss'
 import {Link} from 'react-router-dom';
-import {INSTAGRAM_RICK,FACEBOOK_RICK} from '../../settings';
-import {FLAG_USA_URL, FLAG_POLAND_URL} from '../../settings';
+import {INSTAGRAM_RICK,FACEBOOK_RICK,FLAG_USA_URL, FLAG_POLAND_URL} from '../../settings';
 
 const SearchHeroes = ({reduxAllHeros, filterFilteredNames, searchSearchPharse, getCount, idsToShow}) => {
 
