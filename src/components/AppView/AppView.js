@@ -19,7 +19,7 @@ const AppView = ({loadAllHerosRequest, reduxAllHeros, getSearchPhrase, getFilter
     if("data" in reduxAllHeros && reduxAllHeros.data.length == 0) {
     const fetchData = async () => {   
       loadAllHerosRequest(1)  
-    } 
+    }
     fetchData()
     setIdsToShow(PAGE_SIZE)
     } else {
