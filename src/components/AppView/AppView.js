@@ -21,8 +21,10 @@ const AppView = ({loadAllHerosRequest, reduxAllHeros, getSearchPhrase, getFilter
       loadAllHerosRequest(1)  
     }
     fetchData()
-  }
-  setIdsToShow(PAGE_SIZE)
+    setIdsToShow(PAGE_SIZE)
+    } else {
+      setIdsToShow(reduxAllHeros.data.length)
+    }
   }, [])
   
   useEffect(() => {
