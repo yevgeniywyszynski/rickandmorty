@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './HeroView.module.scss';
 import { v4 as uuidv4 } from 'uuid';
 import {useParams, Link} from "react-router-dom"
+import MultilangualContent from '../MultilangualContent/MultilangualContent';
 
 const HeroView = ({heroToShow, loadAllHerosRequest, reduxAllHeros}) => {
 
@@ -36,11 +37,11 @@ const HeroView = ({heroToShow, loadAllHerosRequest, reduxAllHeros}) => {
       <h2 className={styles.titleInfo}>Personal Information</h2>
         {hero.map(info => (
           <div className={styles.personalDataWrapper} key={uuidv4()}>
-            <p className={styles.name}><span className={styles.nameStyle}>Name: </span>{info?.name}</p>
-            <p className={styles.name}><span className={styles.nameStyle}>Status: </span>{info?.status}</p>
-            <p className={styles.name}><span className={styles.nameStyle}>Episodes: </span>{info?.episode.length}</p>
-            <p className={styles.name}><span className={styles.nameStyle}>Gender: </span>{info?.gender}</p>
-            <p className={styles.name}><span className={styles.nameStyle}>Last known location: </span>{info?.location.name}</p>
+            <p className={styles.name}><span className={styles.nameStyle}><MultilangualContent contentId="Name"/> </span>{info?.name}</p>
+            <p className={styles.name}><span className={styles.nameStyle}><MultilangualContent contentId="Status"/> </span><MultilangualContent contentId={info?.status} /></p>
+            <p className={styles.name}><span className={styles.nameStyle}><MultilangualContent contentId="Episodes"/> </span>{info?.episode.length}</p>
+            <p className={styles.name}><span className={styles.nameStyle}><MultilangualContent contentId="Gender"/> </span><MultilangualContent contentId={info?.gender} /></p>
+            <p className={styles.name}><span className={styles.nameStyle}><MultilangualContent contentId="LastKnowLocation"/> </span>{info?.location.name}</p>
           </div>
         ))}
     </div>
