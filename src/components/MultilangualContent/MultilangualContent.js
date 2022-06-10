@@ -7,3 +7,8 @@ export default function MultilingualContent({contentId}){
 
     return translations[language][contentId];
 }
+
+
+export const getTransationText = (language, contentId) => {
+    return translations[language][contentId]
+}

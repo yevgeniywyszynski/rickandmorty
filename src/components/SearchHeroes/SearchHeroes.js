@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext} from "react";
 import styles from './SearchHeroes.module.scss'
 import {Link} from 'react-router-dom';
 import {INSTAGRAM_RICK,FACEBOOK_RICK,FLAG_USA_URL, FLAG_POLAND_URL} from '../../settings';
-import MultilingualContent from "../MultilangualContent/MultilangualContent";
+import MultilingualContent, {getTransationText} from "../MultilangualContent/MultilangualContent";
 import { LanguageContext } from "../../contexts/multilingualContext";
 
 const SearchHeroes = ({reduxAllHeros, filterFilteredNames, searchSearchPharse, getCount, idsToShow}) => {
@@ -43,7 +43,7 @@ const SearchHeroes = ({reduxAllHeros, filterFilteredNames, searchSearchPharse, g
                 <div className={styles.inputWrapper}>
                     <input className={styles.inputHero}
                     type="text"
-                    placeholder= "Find Your Favorite Hero"
+                    placeholder= {getTransationText(language, 'searchBarPlaceholder')}
                     onChange={handleChange}
                     value={searchPharse}
                     />
