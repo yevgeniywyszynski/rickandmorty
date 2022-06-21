@@ -50,9 +50,7 @@ export const loadAllHerosRequest = (pageId) => {
         try {
             let allHeros = await axios.get(`${RICK_MORTY_API_URL}?page=${pageId}`)
             dispatch(loadAllHeros(allHeros.data.results))
-            console.log(allHeros)
             let count = allHeros.data.info.count
-            console.log(count) 
             dispatch(setCount(count))
             dispatch(endRequest())
         } catch(e) {
