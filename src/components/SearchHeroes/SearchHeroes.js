@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext} from "react";
 import styles from './SearchHeroes.module.scss'
 import {Link} from 'react-router-dom';
 import {INSTAGRAM_RICK,FACEBOOK_RICK,FLAG_USA_URL, FLAG_POLAND_URL} from '../../settings';
-import MultilingualContent, {getTransationText} from "../MultilangualContent/MultilangualContent";
+import MultilingualContent, {getTransationText} from "../MultilingualContent/MultilingualContent";
 import { LanguageContext } from "../../contexts/multilingualContext";
 
 const SearchHeroes = ({reduxAllHeros, filterFilteredNames, searchSearchPharse, getCount, idsToShow}) => {

@@ -6,7 +6,6 @@ import {Link} from 'react-router-dom';
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 const Heroes = ({showHero, addHeroes, favouriteHeroesIds}) => {
-  console.log(showHero);
   return(
     <div className={styles.herosWrapper}>
       {showHero.map(hero => (
