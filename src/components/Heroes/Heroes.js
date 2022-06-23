@@ -6,12 +6,18 @@ import {Link} from 'react-router-dom';
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 const Heroes = ({showHero, addHeroes, favouriteHeroesIds}) => {
+  console.log('heroes', showHero)
+
+  for(let i of showHero) {
+    console.log(i.gender)
+  }
   return(
     <div className={styles.herosWrapper}>
       {showHero.map(hero => (
         <div className={styles.heroWrapper} key={uuidv4()} >
           <div className={styles.nameWrapper}>
               <p className={styles.heroName}>{hero.name}</p>
+              <p className={styles.heroName}>{hero.status}</p>
               {favouriteHeroesIds.includes(hero.id) ?
               <button className={styles.btnAdd} disabled><AiFillHeart className={styles.heart} /></button>
             : <button className={styles.btnAdd} onClick= {() => addHeroes(hero.id)} type="button"><AiOutlineHeart className={styles.heart} /></button>

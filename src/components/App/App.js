@@ -25,7 +25,7 @@ const App = () => {
     <LanguageContext.Provider value = {{language, toggleLanguage}}>
       <Router>
         <Routes>
-          <Route path='/' element={<AppView/>} exact/>
+            <Route element={<AppView/>} index/>
             <Route path='/character/:id' element={<HeroView/>} />
             <Route path = '/favourite-characters' element ={<FavouriteHeroesView/>} />
             <Route path="/:slug" element={<AppView />} />

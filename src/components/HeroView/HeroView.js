@@ -37,10 +37,10 @@ const HeroView = ({heroToShow, loadAllHerosRequest, reduxAllHeros}) => {
       <h2 className={styles.titleInfo}>Personal Information</h2>
         {hero.map(info => (
           <div className={styles.personalDataWrapper} key={uuidv4()}>
-            <p className={styles.name}><span className={styles.nameStyle}><MultilingualContent contentId="Name"/> </span>{info?.name}</p>
-            <p className={styles.name}><span className={styles.nameStyle}><MultilingualContent contentId="Status"/> </span>{info?.status} </p>
+            <p className={styles.name}><span className={styles.nameStyle}> <MultilingualContent contentId="Name"/> </span>{info?.name}</p>
+            <p className={styles.name}><span className={styles.nameStyle}> <MultilingualContent contentId="Status"/> </span><MultilingualContent contentId={info?.status}/></p>
             <p className={styles.name}><span className={styles.nameStyle}><MultilingualContent contentId="Episodes"/> </span>{info?.episode.length}</p>
-            <p className={styles.name}><span className={styles.nameStyle}><MultilingualContent contentId="Gender"/> </span> {info?.gender} </p>
+            <p className={styles.name}><span className={styles.nameStyle}><MultilingualContent contentId="Gender"/> </span><MultilingualContent contentId={info?.gender}/></p>
             <p className={styles.name}><span className={styles.nameStyle}><MultilingualContent contentId="LastKnowLocation"/> </span>{info?.location.name}</p>
           </div>
         ))}
