@@ -13,7 +13,7 @@ export const translations = {
       Alive: "Alive",
       Male: "Male",
       Dead: "Dead",
-      Famale: "Female",
+      Female: "Female",
       unknown: 'unknown',
     },
     pl: {

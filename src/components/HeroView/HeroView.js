@@ -40,7 +40,7 @@ const HeroView = ({heroToShow, loadAllHerosRequest, reduxAllHeros}) => {
             <p className={styles.name}><span className={styles.nameStyle}> <MultilingualContent contentId="Name"/> </span>{info?.name}</p>
             <p className={styles.name}><span className={styles.nameStyle}> <MultilingualContent contentId="Status"/> </span><MultilingualContent contentId={info?.status}/></p>
             <p className={styles.name}><span className={styles.nameStyle}><MultilingualContent contentId="Episodes"/> </span>{info?.episode.length}</p>
-            <p className={styles.name}><span className={styles.nameStyle}><MultilingualContent contentId="Gender"/> </span><MultilingualContent contentId={info?.gender}/></p>
+            <p className={styles.name}><span className={styles.nameStyle}><MultilingualContent contentId="Gender"/> </span><MultilingualContent contentId={info?.gender} /></p>
             <p className={styles.name}><span className={styles.nameStyle}><MultilingualContent contentId="LastKnowLocation"/> </span>{info?.location.name}</p>
           </div>
         ))}
